@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{algorithm}
+\caption{Radix Sort}
+\begin{algorithmic}[1]
+\Procedure{RadixSort}{$A, d$} \Comment{A is the array to be sorted, d is the maximum number of digits}
+    \State $n \gets \text{length of } A$
+    \For{$i \gets 1 \textrm{ to } d$}
+        \State $\text{bucket}[0..9] \gets$ new array of size 10 filled with empty lists
+        \For{$j \gets 1 \textrm{ to } n$}
+            \State $digit \gets \text{get the } i\text{-th digit of } A[j]$
+            \State \Call{Append}{$\text{bucket}[digit], A[j]$}
+        \EndFor
+        \State $A \gets$ concatenate all lists in bucket in order
+    \EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\end{document}

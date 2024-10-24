@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+
+
+\begin{document}
+
+\begin{algorithm}
+\caption{Counting Sort}
+\begin{algorithmic}[1]
+\Procedure{CountingSort}{$A, B, k$} \Comment{A is the array to be sorted, B is the output array, k is the range of the input}
+    \State $n \gets \text{length of } A$
+    \State $C[0..k] \gets$ a new array of zeros with size $k+1$
+    \For{$i \gets 0 \textrm{ to } n-1$}
+        \State $C[A[i]] \gets C[A[i]] + 1$
+    \EndFor
+    \For{$i \gets 1 \textrm{ to } k$}
+        \State $C[i] \gets C[i] + C[i-1]$
+    \EndFor
+    \For{$i \gets n-1 \textrm{ down to } 0$}
+        \State $B[C[A[i]]-1] \gets A[i]$
+        \State $C[A[i]] \gets C[A[i]] - 1$
+    \EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\end{document}

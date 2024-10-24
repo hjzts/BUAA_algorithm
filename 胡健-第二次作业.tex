@@ -1,0 +1,154 @@
+\documentclass{article}
+
+% Language setting
+% Replace `English' with e.g. `Spanish' to change the document language
+\usepackage[english]{babel}
+\usepackage{ctex}
+
+% Set page size and margins
+% Replace `letter paper' with`a4paper' for UK/EU standard size
+\usepackage[a4paper,top=1.5cm,bottom=1.5cm,left=2cm,right=2cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{amssymb}
+% 引入{amssymb}包，避免输入\nexists(存在否定)这个符号时 报未定义符号的错误
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage[ruled]{algorithm2e}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{algpseudocode}
+\usepackage{ dsfont }
+% \usepackage{algorithm}
+
+\SetKwProg{Function}{function}{:}{end}
+
+% TODO 个人信息参数全局变量
+% -------------- define personal variables begin --------------
+\newcommand\myCollege{}
+\newcommand\myId{22373058}
+\newcommand\myName{胡健}
+\newcommand\myHomeworkId{1}
+% --------------  define personal variables end  --------------
+
+\title{\heiti \myCollege《算法设计与分析》第\myHomeworkId 次作业} % 文章标题
+\author{\myCollege \quad \myId \quad \myName} % 作者信息
+
+\begin{document}
+\maketitle
+
+\section{不完美字符串 (20 分)}
+
+对于一个长度为 $n$ 的仅由 0 和 1 构成的字符串 s ，其不完美度定义为所有相邻字符对中互
+不相同的字符对数量的和。比如，长度为 4 的字符串 “0010” 的不完美度为 2，这是由 01 和 10 两个相邻数对贡献得到的。形式化地，字符串 $s$ 的不完美度如下式：
+\begin{align*}
+    & f(s) =  \sum_{i=1}^{n-1} [s_i \ne s_{i+1}]
+\end{align*}
+([] 运算的结果取决于其中布尔表达式的真值。若为假，其值为 0，若为真，其值为 1)
+
+现给定一个长度为 n 的字符串 s，每一位仅由 0、 1 和 ? 组成。你需要将其中的每一个 ? 替
+换成 0 或者 1 ，且最小化字符串 s 的不完美度 $f(s)$ 。
+
+例如，给定的字符串为 “?1?0”，一种使不完美度最小的替换方案为 “1110”，其不完美度为 1，
+可以证明，没有其他替换方案，
+
+请使用动态规划算法求解最小的不完美度，并给出一个替换方案。请描述算法的核心思想，
+给出算法伪代码并分析其对应的时间复杂度。
+
+\subsection{题目分析与核心思想}
+
+\subsection{算法与伪代码}
+
+\subsubsection{基于排序算法}
+\begin{algorithm}[H]
+
+\caption{基于归并排序处理游戏获奖问题}
+\LinesNumbered
+\KwIn{正整数$n$，为数组长度，每名选手的得分数组：$A[1...n]$}
+\KwOut{一个整数Ans，表示主办方发放的奖金}
+
+\Function{$main(n,A)$}{
+    $\text{MergeSort}(A, 1, n)$\\
+    $Ans \leftarrow 0 $\\
+    \For {$i \leftarrow 1 \ to \ \lfloor \frac{n}{3} \rfloor$} {
+        $Ans += A[i]$
+    }
+    \Return{$Ans$}
+}
+\end{algorithm}
+
+
+\subsection{时间复杂度分析}
+
+% \newpage
+
+\section{鲜花组合问题 (20 分)}
+
+花店共有 $n$ 不同颜色的花，其中第 $i$ 种库存有 $a_i$ 枝，现要从中选出$m$ 枝花组成一束鲜花。
+
+请设计算法计算有多少种组合一束花的方案，请描述算法的核心思想，给出算法伪代码并
+分析其对应的时间复杂度。（两种方案不同当且仅当存在一个花的种类 $i$，两种方案中第 $i$ 种花的数量不同）
+
+\subsection{题目分析与核心思想}
+
+\subsection{算法与伪代码}
+
+\subsection{时间复杂度分析}
+
+% \newpage
+
+\section{最长公共上升子序列 (20 分)}
+
+对两个序列 $A$ 和 $B$ ，序列 $s$ 为 $A$ 和 $B$ 的公共上升子序列，当且仅当 $s$ 是 $A$ 和 $B$ 的公共子序列，且 $s$ 是上升子序列（$s_i < s_{i+1}, \forall \ 1 \le i < |s|$）。
+
+对两个序列 $A$ 和 $B$ ，若某个序列 $s$ 是 $A$ 和 $B$ 的公共上升子序列，且对于任意的 $A$ 和 $B$ 的公共上升子序列 $t$，都有 $|t| \le |s|$，那么 $s$ 称为 $A$ 和 $B$ 的最长公共上升子序列。
+
+例如，给定两个序列 < 2, 3, 1, 6, 5, 4, 6 > 和 < 1, 3, 5, 6 >，其一个最长公共上升子序列为< 3, 5, 6 >。
+
+给定两个长度为 $n$ 的序列 $A$ 和 $B$。请设计一个动态规划算法，求它们的最长公共上升子序列的长度。请描述算法的核心思想，给出算法伪代码并分析其对应的时间复杂度。
+
+\subsection{题目分析与核心思想}
+
+\subsection{算法与伪代码}
+
+\subsection{时间复杂度分析}
+
+% \newpage
+
+\section{叠塔问题 (20 分)}
+
+给定 $n$ 块积木，编号为 $1$ 到 $n$。第 $i$ 块积木的重量为 $w_i$($w_i$ 为整数)，硬度为 $s_i$，价值为 $v_i$。   
+
+现要从中选择部分积木垂直摞成一座塔，要求每块积木满足如下条件:
+
+若第 $i$ 块积木在积木塔中，那么在其之上摆放的所有积木的重量之和不能超过第 $i$ 块积木的
+硬度。
+
+试设计算法求出满足上述条件的价值和最大的积木塔，输出摆放方案和最大价值和。请描述算法的核心思想，给出算法伪代码并分析其对应的时间复杂度。
+
+\subsection{题目分析与核心思想}
+
+\subsection{算法与伪代码}
+
+\subsection{时间复杂度分析}
+
+% \newpage
+
+\section{最小划分问题 (20 分)}
+
+对一个序列 $a$ 上的某两个数 $a_i$ 和 $a_j$ ，若 $i < j$ 且 $a_i \ne a_j$ ，则称 $(i, j)$ 为一个不同数对。一个序列 $a$ 的不同数对数为序列中所有不同数对的个数之和。例如，序列 < 1, 0, 1, 0 > 的不同数对有 (1, 2), (1, 4), (2, 3), (3, 4) 四个。
+
+给你一个长度为 $n$ 的正整数序列 $a$ 和一个正整数 $k$，满足序列中的任意一个数 $a_i \in [1, n]$ 。请你将其划分为 $k$ 个子段，最小化每个子段最小不同数对数相加的和。你只需要回答这个最小
+的和。
+
+例如，给定序列为 < 1, 1, 3, 3, 3, 2, 1 > 和参数 $k = 3$，则答案为 1，对应的一个划分方法为< 1, 1 >, < 3, 3, 3 >, < 2, 1 > 。
+
+请使用动态规划求解该问题，描述算法的核心思想，给出算法伪代码并分析其对应的时间复杂度。
+
+\subsection{题目分析与核心思想}
+
+\subsection{算法与伪代码}
+
+\subsection{时间复杂度分析}
+
+\end{document}

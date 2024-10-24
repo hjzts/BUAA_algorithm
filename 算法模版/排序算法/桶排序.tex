@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+
+\begin{document}
+
+\begin{algorithm}
+\caption{Bucket Sort}
+\begin{algorithmic}[1]
+\Procedure{BucketSort}{$A$} \Comment{A is the array to be sorted}
+    \State $n \gets \text{length of } A$
+    \State $B[1..n] \gets$ new array of $n$ empty lists \Comment{Create an array of empty buckets}
+    \For{$i \gets 1 \textrm{ to } n$}
+        \State $bucketIndex \gets \text{floor}(n \cdot A[i])$ \Comment{Calculate the bucket index for A[i]}
+        \State \Call{Append}{$B[bucketIndex], A[i]$} \Comment{Insert A[i] into its bucket}
+    \EndFor
+    \State $index \gets 1$
+    \For{$i \gets 1 \textrm{ to } n$}
+        \For{$j \gets 1 \textrm{ to } \text{length of } B[i]$}
+            \State $A[index] \gets B[i][j]$ \Comment{Concatenate the buckets}
+            \State $index \gets index + 1$
+        \EndFor
+    \EndFor
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+\end{document}
